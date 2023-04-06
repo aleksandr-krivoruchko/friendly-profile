@@ -12,6 +12,9 @@ const Friend = () => {
         alignItems: "center",
         flexDirection: "column",
         gap: "50px",
+        background:
+          "url('https://images.wallpaperscraft.ru/image/single/derevo_svet_temnyj_82372_360x640.jpg') no-repeat center/cover",
+        backgroundColor: "#8d8aa0",
       }}>
       <Typography variant="h4" align="center" color="primary">
         Значит ты готов ответить на парочку вопросов
@@ -21,7 +24,7 @@ const Friend = () => {
           width: "100%",
           height: "200px",
           display: "flex",
-          justifyContent: "space-around",
+          justifyContent: "space-between",
           alignItems: "center",
           flexDirection: "column",
         }}>
@@ -32,10 +35,12 @@ const Friend = () => {
           label="Твое имя"
           variant="outlined"
           fullWidth={true}
-          marginBottom="20px"
+          autoFocus={true}
+          required={true}
+          color="primary"
         />
         <Button size="lg" variant="contained" fullWidth={true}>
-          <Link to="/">П О Г Н А Л И</Link>
+          <Link to="/trivia">П О Г Н А Л И</Link>
         </Button>
       </Box>
       <Button size="small" variant="contained" color="secondary">
@@ -46,3 +51,4 @@ const Friend = () => {
 };
 
 export default Friend;
+//https://images.wallpaperscraft.ru/image/single/devushka_noch_zvezdnoe_nebo_160928_360x640.jpg

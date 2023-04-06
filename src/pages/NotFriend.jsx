@@ -1,22 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Container } from "@mui/material";
 
 const NotFriend = () => {
   return (
     <Container
       sx={{
         height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        gap: "30px",
+        background:
+          "url('https://risovach.ru/upload/2014/11/mem/frai-v-panike_65955243_orig_.jpeg') no-repeat center/contain",
+        backgroundColor: "#b5b8a8",
       }}>
-      <Typography variant="h4" align="center" color="primary">
-        Ты мне не друг и просто уходи
-      </Typography>
-      <Button size="lg" variant="contained">
+      <Button
+        size="small"
+        variant="contained"
+        color="secondary"
+        sx={{
+          position: "absolute",
+          bottom: "0",
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}>
         <Link to="/">НАЗАД</Link>
       </Button>
     </Container>
