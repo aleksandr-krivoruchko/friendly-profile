@@ -5,8 +5,11 @@ import Home from "./pages/Home";
 import Friend from "./pages/Friend";
 import NotFriend from "./pages/NotFriend";
 import Trivia from "./pages/Trivia";
+import Finish from "./pages/Finish";
+import Results from "./pages/Results";
 
 function App() {
+  const [userName, setUserName] = React.useState("Чубака");
   const [questionNumber, setQuestionNumber] = React.useState(1);
   const [correctAnswers, setCorrectAnswers] = React.useState(0);
   const data = [
@@ -39,15 +42,20 @@ function App() {
     },
   ];
 
-  console.log(
-    `Из ${data.length} вопросов правильных ответов ${correctAnswers}`
-  );
-
   return (
     <Container maxWidth="sm" sx={{ padding: "0px" }}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/friend" element={<Friend />} />
+        <Route
+          path="/friend"
+          element={
+            <Friend
+              setUserName={setUserName}
+              setQuestionNumber={setQuestionNumber}
+              setCorrectAnswers={setCorrectAnswers}
+            />
+          }
+        />
         <Route
           path="/trivia"
           element={
@@ -59,6 +67,18 @@ function App() {
             />
           }
         />
+        <Route
+          path="/finish"
+          element={
+            <Finish
+              data={data}
+              userName={userName}
+              setUserName={setUserName}
+              correctAnswers={correctAnswers}
+            />
+          }
+        />
+        <Route path="/results" element={<Results data={data} />} />
         <Route path="*" element={<NotFriend />} />
       </Routes>
     </Container>

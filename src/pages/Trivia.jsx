@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { Box, Container, Typography } from "@mui/material";
 
 const Trivia = ({
   data,
@@ -10,10 +10,14 @@ const Trivia = ({
 }) => {
   const [question, setQuestion] = React.useState(null);
   const [selectedAnswer, setSelectedAnswer] = React.useState(null);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
+    if (questionNumber > data.length) {
+      navigate("/finish");
+    }
     setQuestion(data[questionNumber - 1]);
-  }, [data, questionNumber]);
+  }, [data, navigate, questionNumber]);
 
   const handleClick = (answer) => {
     setSelectedAnswer(answer);
@@ -32,22 +36,41 @@ const Trivia = ({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        gap: "30px",
+        background:
+          "url('https://i.7fon.org/1000/c543383.jpg') no-repeat center/cover",
       }}>
-      <Typography variant="h3" align="center" color="primary">
-        {question?.question}
-      </Typography>
-
-      {question?.answers.map((answer) => (
-        <Typography
-          variant="p"
-          align="center"
-          color={selectedAnswer === answer ? "red" : "primary"}
-          sx={{ fontSize: "20px", padding: "10px" }}
-          onClick={() => handleClick(answer)}>
-          {answer.text}
+      <Box
+        sx={{
+          width: "80%",
+          height: "50%",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexDirection: "column",
+        }}>
+        <Typography variant="h3" align="center" color="#fff">
+          {question?.question}
         </Typography>
-      ))}
+
+        {question?.answers.map((answer) => (
+          <Typography
+            key={answer.text}
+            variant="p"
+            align="center"
+            color="#fff"
+            sx={{
+              fontSize: "26px",
+              padding: "10px",
+              cursor: "pointer",
+              border: "1px solid #fff",
+              borderRadius: "20px",
+              backgroundColor: "rgba(248, 243, 246, 0.2)",
+            }}
+            onClick={() => handleClick(answer)}>
+            {answer.text}
+          </Typography>
+        ))}
+      </Box>
     </Container>
   );
 };
