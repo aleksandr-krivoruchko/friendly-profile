@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: "Alice", serif;
   background-color: #b5b8a8;
-  color: "#166461";
+  /* color: "#166461"; */
 }
 a {
   text-decoration: none;
@@ -28,4 +28,60 @@ p {
 img {
   display: block;
   max-width: 100%;
+}
+.answer {
+  font-size: 26px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 20px;
+  background-color: rgba(248, 243, 246, 0.2);
+}
+
+.answer:hover,
+.answer.active {
+  background-color: mediumblue;
+}
+
+.answer.correct {
+  animation: correct 3000ms ease forwards;
+}
+
+@keyframes correct {
+  0%,
+  22%,
+  42% {
+    background-color: mediumblue;
+  }
+  20%,
+  40%,
+  60% {
+    background-color: yellow;
+  }
+  62%,
+  100% {
+    background-color: green;
+  }
+}
+
+.answer.wrong {
+  animation: wrong 3000ms ease forwards;
+}
+
+@keyframes wrong {
+  0%,
+  22%,
+  42% {
+    background-color: mediumblue;
+  }
+  20%,
+  40%,
+  60% {
+    background-color: yellow;
+  }
+  62%,
+  100% {
+    background-color: crimson;
+  }
 }

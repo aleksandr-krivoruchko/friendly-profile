@@ -17,7 +17,7 @@ const NotFriend = () => {
         color="secondary"
         sx={{
           position: "absolute",
-          bottom: "0",
+          bottom: "10px",
           left: "50%",
           transform: "translateX(-50%)",
         }}>

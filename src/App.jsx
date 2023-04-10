@@ -12,6 +12,8 @@ function App() {
   const [userName, setUserName] = React.useState("Чубака");
   const [questionNumber, setQuestionNumber] = React.useState(1);
   const [correctAnswers, setCorrectAnswers] = React.useState(0);
+  const [selectedAnswer, setSelectedAnswer] = React.useState(null);
+
   const data = [
     {
       id: 1,
@@ -64,6 +66,7 @@ function App() {
               questionNumber={questionNumber}
               setQuestionNumber={setQuestionNumber}
               setCorrectAnswers={setCorrectAnswers}
+              setSelectedAnswer={setSelectedAnswer}
             />
           }
         />
@@ -78,7 +81,17 @@ function App() {
             />
           }
         />
-        <Route path="/results" element={<Results data={data} />} />
+        <Route
+          path="/results"
+          element={
+            <Results
+              data={data}
+              userName={userName}
+              selectedAnswer={selectedAnswer}
+              questionNumber={questionNumber}
+            />
+          }
+        />
         <Route path="*" element={<NotFriend />} />
       </Routes>
     </Container>

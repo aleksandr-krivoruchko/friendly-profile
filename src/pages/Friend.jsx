@@ -1,13 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Container, Typography, TextField, Box } from "@mui/material";
+import useSound from "use-sound";
+import wait from "../sounds/wait.mp3";
 
 const Friend = ({ setUserName, setCorrectAnswers, setQuestionNumber }) => {
+  const inputRef = React.useRef("Чубака");
+  const [waitPlay, { stop }] = useSound(wait);
+
   React.useEffect(() => {
-    setUserName("Чубака");
     setCorrectAnswers(0);
     setQuestionNumber(1);
   }, [setCorrectAnswers, setQuestionNumber, setUserName]);
+
+  React.useEffect(() => {
+    waitPlay();
+  }, [waitPlay]);
+
+  const handleClick = () => {
+    inputRef.current.value && setUserName(inputRef.current.value);
+    stop();
+  };
 
   return (
     <Container
@@ -17,7 +30,7 @@ const Friend = ({ setUserName, setCorrectAnswers, setQuestionNumber }) => {
         justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "column",
-        padding: "20px 0",
+        padding: "20px 10px",
         background:
           "url('https://images.wallpaperscraft.ru/image/single/derevo_svet_temnyj_82372_360x640.jpg') no-repeat center/cover",
         backgroundColor: "#8d8aa0",
@@ -51,7 +64,11 @@ const Friend = ({ setUserName, setCorrectAnswers, setQuestionNumber }) => {
           sx={{ marginBottom: "10px" }}
           onChange={(e) => setUserName(e.target.value)}
         />
-        <Button size="lg" variant="contained" fullWidth={true}>
+        <Button
+          size="lg"
+          variant="contained"
+          fullWidth={true}
+          onClick={handleClick}>
           <Link to="/trivia">П О Г Н А Л И</Link>
         </Button>
       </Box>
@@ -63,4 +80,3 @@ const Friend = ({ setUserName, setCorrectAnswers, setQuestionNumber }) => {
 };
 
 export default Friend;
-//https://images.wallpaperscraft.ru/image/single/devushka_noch_zvezdnoe_nebo_160928_360x640.jpg
