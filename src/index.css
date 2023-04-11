@@ -2,8 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Alice", serif;
-  background-color: #b5b8a8;
-  /* color: "#166461"; */
+  background-color: #e1ded9;
 }
 a {
   text-decoration: none;
@@ -30,8 +29,7 @@ img {
   max-width: 100%;
 }
 .answer {
-  font-size: 26px;
-  padding: 10px;
+  padding: 10px 30px;
   cursor: pointer;
   border: 1px solid #fff;
   color: #fff;
@@ -57,7 +55,7 @@ img {
   20%,
   40%,
   60% {
-    background-color: yellow;
+    background-color: rgb(180, 180, 8);
   }
   62%,
   100% {
@@ -78,10 +76,14 @@ img {
   20%,
   40%,
   60% {
-    background-color: yellow;
+    background-color: rgb(180, 180, 8);
   }
   62%,
   100% {
     background-color: crimson;
   }
+}
+
+.right-answer {
+  background-color: green;
 }

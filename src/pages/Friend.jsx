@@ -15,7 +15,8 @@ const Friend = ({ setUserName, setCorrectAnswers, setQuestionNumber }) => {
 
   React.useEffect(() => {
     waitPlay();
-  }, [waitPlay]);
+    return () => stop();
+  }, [stop, waitPlay]);
 
   const handleClick = () => {
     inputRef.current.value && setUserName(inputRef.current.value);

@@ -1,8 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Container } from "@mui/material";
+import useSound from "use-sound";
+import Mama from "../sounds/mamochka.mp3";
 
 const NotFriend = () => {
+  const [mama, { stop }] = useSound(Mama);
+
+  React.useEffect(() => {
+    mama();
+
+    return () => stop();
+  }, [mama, stop]);
+
   return (
     <Container
       sx={{

@@ -8,9 +8,19 @@ import {
   Container,
   Typography,
 } from "@mui/material";
-import Ava from "../img/face.jpg";
+import Ava from "../img/girl.jpg";
+import useSound from "use-sound";
+import sound from "../sounds/druzhba.mp3";
 
 const Home = () => {
+  const [playSound, { stop }] = useSound(sound);
+
+  React.useEffect(() => {
+    playSound();
+
+    return () => stop();
+  }, [playSound, stop]);
+
   return (
     <Container
       sx={{
@@ -33,7 +43,7 @@ const Home = () => {
           gap: "30px",
         }}>
         <Typography variant="h4" align="center" color="#fff">
-          Хочешь проверить как хорошо ты знаешь свою подругу?
+          Хочешь проверить как хорошо ты знаешь этого человека?
         </Typography>
         <Avatar
           alt="Евгения Криворучко"

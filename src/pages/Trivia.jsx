@@ -12,13 +12,22 @@ const Trivia = ({
   setQuestionNumber,
   setCorrectAnswers,
 }) => {
+  const navigate = useNavigate();
   const [question, setQuestion] = React.useState(null);
   const [selectedAnswer, setSelectedAnswer] = React.useState(null);
   const [className, setClassName] = React.useState("answer");
-  const navigate = useNavigate();
   const [letsPlay] = useSound(play);
   const [correctPlay] = useSound(correct);
   const [wrongPlay] = useSound(wrong);
+
+  const showCorrectAnswer = () => {
+    const rightAnswer = question?.answers.find((a) => a.correct);
+    document.querySelectorAll(".answer").forEach((a) => {
+      if (a.textContent === rightAnswer.text) {
+        a.classList.add("right-answer");
+      }
+    });
+  };
 
   React.useEffect(() => {
     letsPlay();
@@ -49,6 +58,7 @@ const Trivia = ({
         }, 3000);
       } else {
         wrongPlay();
+        showCorrectAnswer();
         setTimeout(() => {
           setQuestionNumber((prev) => prev + 1);
           setSelectedAnswer(null);
@@ -83,13 +93,13 @@ const Trivia = ({
         </Typography>
 
         {question?.answers.map((answer) => (
-          <li key={answer.text}>
-            <p
-              className={selectedAnswer === answer ? className : "answer"}
-              onClick={() => handleClick(answer)}>
-              {answer.text}
-            </p>
-          </li>
+          <Typography
+            key={answer.text}
+            sx={{ fontSize: "30px" }}
+            className={selectedAnswer === answer ? className : "answer"}
+            onClick={() => handleClick(answer)}>
+            {answer.text}
+          </Typography>
         ))}
       </Box>
     </Container>

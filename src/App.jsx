@@ -45,7 +45,7 @@ function App() {
   ];
 
   return (
-    <Container maxWidth="sm" sx={{ padding: "0px" }}>
+    <Container maxWidth="md" sx={{ padding: "0px" }}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
