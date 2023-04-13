@@ -8,7 +8,7 @@ import {
   Container,
   Typography,
 } from "@mui/material";
-import Ava from "../img/girl.jpg";
+import Ava from "../img/love.jpg";
 import useSound from "use-sound";
 import sound from "../sounds/druzhba.mp3";
 
@@ -19,7 +19,7 @@ const Home = () => {
     playSound();
 
     return () => stop();
-  }, [playSound, stop]);
+  });
 
   return (
     <Container

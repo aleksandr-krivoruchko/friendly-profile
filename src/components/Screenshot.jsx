@@ -7,11 +7,18 @@ const Screenshot = () => {
   const ref = createRef(null);
   const [image, takeScreenshot] = useScreenshot();
   console.log(ref);
+  console.log(image);
 
   return (
-    <div>
-      <img width="100%" height="100%" src={image} alt={"Screenshot"} />
-      <div ref={ref}>
+    <div ref={ref} style={{ backgroundColor: "red" }}>
+      <img
+        width="100%"
+        height="100%"
+        backgroundColor="red"
+        src={image}
+        alt="Screenshot"
+      />
+      {/* <div ref={ref} style={{ backgroundColor: "red" }}>
         <h1>use-react-screenshot</h1>
         <h2>qwdkjbjwdhgvwgvdhgwvdhgwdvgdhgvd</h2>
         <p>
@@ -20,7 +27,7 @@ const Screenshot = () => {
         <Button size="small" variant="contained" color="secondary">
           <Link to="/friend">Еще разок ?</Link>
         </Button>
-      </div>
+      </div> */}
       <div>
         <button
           style={{ marginBottom: "10px" }}
