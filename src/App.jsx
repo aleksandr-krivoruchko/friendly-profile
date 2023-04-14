@@ -9,7 +9,8 @@ import Finish from "./pages/Finish";
 import Results from "./pages/Results";
 
 function App() {
-  const [userName, setUserName] = React.useState("Чубака");
+  const [userName, setUserName] = React.useState("NoName");
+  const [whoAmI, setWhoAmI] = React.useState("незнакомец");
   const [questionNumber, setQuestionNumber] = React.useState(1);
   const [correctAnswers, setCorrectAnswers] = React.useState(0);
   const [selectedAnswer, setSelectedAnswer] = React.useState(null);
@@ -17,29 +18,104 @@ function App() {
   const data = [
     {
       id: 1,
-      question: "Любимый цвет",
+      question: "Месяц рождения",
       answers: [
-        { text: "Красный", correct: false },
-        { text: "Черный", correct: true },
-        { text: "Синий", correct: false },
+        { text: "Июнь", correct: true },
+        { text: "Март", correct: false },
+        { text: "Сентябрь", correct: false },
+        { text: "Январь", correct: false },
       ],
     },
     {
       id: 2,
+      question: "Текущий класс школы ",
+      answers: [
+        { text: "6", correct: false },
+        { text: "7", correct: false },
+        { text: "8", correct: true },
+        { text: "9", correct: false },
+      ],
+    },
+
+    {
+      id: 3,
       question: "Любимое домашнее животное",
       answers: [
         { text: "Собака", correct: false },
         { text: "Кот", correct: true },
         { text: "Папа", correct: false },
+        { text: "Тараканы", correct: false },
       ],
     },
     {
-      id: 3,
+      id: 4,
+      question: "Любимый цвет",
+      answers: [
+        { text: "Красный", correct: false },
+        { text: "Черный", correct: true },
+        { text: "Синий", correct: false },
+        { text: "Зеленый", correct: false },
+      ],
+    },
+    {
+      id: 5,
       question: "Любимый вид спорта",
       answers: [
         { text: "Футбол", correct: false },
         { text: "Бадминтон", correct: false },
         { text: "Волейбол", correct: true },
+        { text: "Керлинг", correct: false },
+      ],
+    },
+
+    {
+      id: 6,
+      question: "Самый большой страх",
+      answers: [
+        { text: "Мама", correct: false },
+        { text: "Пауки", correct: true },
+        { text: "Темнота", correct: false },
+        { text: "Высота", correct: false },
+      ],
+    },
+    {
+      id: 7,
+      question: "Любимая социальная сеть",
+      answers: [
+        { text: "Инстаграмм", correct: false },
+        { text: "Вконтакте", correct: false },
+        { text: "Фейсбук", correct: false },
+        { text: "Тик-ток", correct: true },
+      ],
+    },
+    {
+      id: 8,
+      question: "Любимый школьный предмет",
+      answers: [
+        { text: "История", correct: false },
+        { text: "Химия", correct: false },
+        { text: "Алгебра", correct: true },
+        { text: "Биология", correct: false },
+      ],
+    },
+    {
+      id: 9,
+      question: "Любимая компьютерная игра",
+      answers: [
+        { text: "Майнкрафт", correct: false },
+        { text: "Фортнайт", correct: false },
+        { text: "Роблокс", correct: true },
+        { text: "Сапер", correct: false },
+      ],
+    },
+    {
+      id: 10,
+      question: "Любимый мультфильм",
+      answers: [
+        { text: "Семейка Крудс", correct: true },
+        { text: "Корпорация монстров", correct: false },
+        { text: "Кот в сапогах", correct: false },
+        { text: "Холодное сердце", correct: false },
       ],
     },
   ];
@@ -53,6 +129,8 @@ function App() {
           element={
             <Friend
               setUserName={setUserName}
+              whoAmI={whoAmI}
+              setWhoAmI={setWhoAmI}
               setQuestionNumber={setQuestionNumber}
               setCorrectAnswers={setCorrectAnswers}
             />
@@ -76,6 +154,7 @@ function App() {
             <Finish
               data={data}
               userName={userName}
+              whoAmI={whoAmI}
               setUserName={setUserName}
               correctAnswers={correctAnswers}
             />

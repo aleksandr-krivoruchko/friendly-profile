@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useSound from "use-sound";
-import { Box, Container, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import play from "../sounds/play.mp3";
 import correct from "../sounds/correct.mp3";
 import wrong from "../sounds/wrong.mp3";
@@ -75,33 +75,23 @@ const Trivia = ({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        gap: "20px",
         background:
           "url('https://i.7fon.org/1000/c543383.jpg') no-repeat center/cover",
       }}>
-      <Box
-        sx={{
-          width: "80%",
-          height: "50%",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexDirection: "column",
-          gap: "20px",
-        }}>
-        <Typography variant="h3" align="center" color="#fff">
-          {question?.question}
-        </Typography>
+      <Typography variant="h3" align="center" color="#fff">
+        {question?.question}
+      </Typography>
 
-        {question?.answers.map((answer) => (
-          <Typography
-            key={answer.text}
-            sx={{ fontSize: "30px" }}
-            className={selectedAnswer === answer ? className : "answer"}
-            onClick={() => handleClick(answer)}>
-            {answer.text}
-          </Typography>
-        ))}
-      </Box>
+      {question?.answers.map((answer) => (
+        <Typography
+          key={answer.text}
+          sx={{ fontSize: "30px" }}
+          className={selectedAnswer === answer ? className : "answer"}
+          onClick={() => handleClick(answer)}>
+          {answer.text}
+        </Typography>
+      ))}
     </Container>
   );
 };
