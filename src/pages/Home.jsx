@@ -8,7 +8,7 @@ import {
   Container,
   Typography,
 } from "@mui/material";
-import Ava from "../img/face2.jpg";
+import Ava from "../img/face3.jpg";
 import useSound from "use-sound";
 import sound from "../sounds/druzhba.mp3";
 
@@ -48,7 +48,7 @@ const Home = () => {
         <Avatar
           alt="Евгения Криворучко"
           src={Ava}
-          sx={{ width: 170, height: 153 }}
+          sx={{ width: 170, height: 170 }}
         />
       </Box>
       <ButtonGroup size="large" variant="contained" aria-label="yes_no">

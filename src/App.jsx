@@ -72,8 +72,8 @@ function App() {
       id: 6,
       question: "Самый большой страх",
       answers: [
+        { text: "Одиночество", correct: true },
         { text: "Мама", correct: false },
-        { text: "Пауки", correct: true },
         { text: "Темнота", correct: false },
         { text: "Высота", correct: false },
       ],
@@ -112,10 +112,31 @@ function App() {
       id: 10,
       question: "Любимый мультфильм",
       answers: [
-        { text: "Семейка Крудс", correct: true },
-        { text: "Корпорация монстров", correct: false },
+        { text: "Дом совы", correct: true },
+        { text: "Рок Дог", correct: false },
         { text: "Кот в сапогах", correct: false },
         { text: "Холодное сердце", correct: false },
+      ],
+    },
+    {
+      id: 11,
+      question: "Любимый напиток",
+      answers: [
+        { text: "Кока-кола", correct: false },
+        { text: "Фанта", correct: false },
+        { text: "Чай", correct: true },
+        { text: "Томатный сок", correct: false },
+      ],
+    },
+
+    {
+      id: 12,
+      question: "Будущая профессия",
+      answers: [
+        { text: "Дизайнер одежды", correct: false },
+        { text: "Психолог", correct: true },
+        { text: "Космонавт", correct: false },
+        { text: "Ветеринар", correct: false },
       ],
     },
   ];

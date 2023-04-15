@@ -75,10 +75,10 @@ const Finish = ({ data, userName, whoAmI, correctAnswers }) => {
           color={`${compareAnswers ? "black" : "white"}`}
           m={2}
           align="center">
-          Делай скриншот и отправляй Женьке <br /> или
+          Делай скриншот и отправляй Женьке
         </Typography>
         <Button size="small" variant="contained" color="secondary">
-          <Link to="/friend">Еще разок ?</Link>
+          <Link to="/friend">Пройти еще разок</Link>
         </Button>
       </Box>
     </Container>
